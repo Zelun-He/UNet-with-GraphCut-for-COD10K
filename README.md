@@ -28,7 +28,6 @@ This model was built using a custom U-Net architecture with skip connections. It
 - Learned why **MSE** is a poor loss choice for binary segmentation and how **Dice loss** better captures shape/structure.
 
 ---
----
 
 ## How to Set Up the Project
 
