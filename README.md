@@ -30,86 +30,18 @@ This model was built using a custom U-Net architecture with skip connections. It
 - Learned why **MSE** is a poor loss choice for binary segmentation and how **Dice loss** better captures shape/structure.
 
 ---
-##If you want to try it out
-1. Clone the Repository
-bash
-Copy
-Edit
-git clone https://github.com/zelun-he/UNet-with-GraphCut-for-COD10K.git
-cd UNet-with-GraphCut-for-COD10K
-2. Create Virtual Environment and Install Dependencies
-bash
-Copy
-Edit
-python -m venv .venv
-source .venv/bin/activate       # On Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-If you are using GitHub Codespaces, the environment is already active. Just run:
+##How to Set Up and Run the Project
 
-nginx
-Copy
-Edit
-pip install -r requirements.txt
-Download and Prepare the COD10K Dataset
-Download the COD10K-v3 dataset from the official source or mirror:
+Clone or download the repository to your computer.
 
-Official repo: https://github.com/CODAI/COD10K
+Make sure you have Python 3.8 or later installed. Then install the required libraries using the list provided in the requirements.txt file. You can do this with a Python package manager.
 
-Google Drive: https://drive.google.com/file/d/1FxbyulYohQ1c7D7ZbFYoiK4vWaBzvYz5/view
+Download the COD10K-v3 dataset from the official repository hosted on GitHub (search for "LiuYingzheng/COD10K"). After downloading, extract the archive so that the Train and Test folders are placed inside the camouflage_detection/data/COD10K-v3/ directory in your project.
 
-Extract the dataset into:
+To organize the data into training, validation, and testing folders, run the split_data.py script located in the camouflage_detection/data/ directory.
 
-bash
-Copy
-Edit
-camouflage_detection/data/COD10K-v3/
-The folder structure should look like this:
+After the data is prepared, you can start training the model by running the train.py script from the main project directory.
 
-swift
-Copy
-Edit
-camouflage_detection/data/COD10K-v3/Train/Images
-camouflage_detection/data/COD10K-v3/Train/GT_Object
-camouflage_detection/data/COD10K-v3/Test/Images
-camouflage_detection/data/COD10K-v3/Test/GT_Object
-Run the data splitter script to organize the dataset into train, val, and test folders:
+Once training is complete, you can evaluate the model and generate output masks by running the evaluate.py script.
 
-bash
-Copy
-Edit
-python camouflage_detection/data/split_data.py
-Train the Model
-Run the following to train the U-Net model:
-
-bash
-Copy
-Edit
-python camouflage_detection/train.py
-This will:
-
-Train the model on the COD10K dataset
-
-Save the best model to camouflage_detection/checkpoints/best_model.pth
-
-Evaluate the Model
-Once training is complete, you can evaluate the model and apply GraphCut refinement:
-
-bash
-Copy
-Edit
-python camouflage_detection/evaluate.py
-This will:
-
-Run the model on the test set
-
-Save predictions to camouflage_detection/outputs/
-
-Print evaluation metrics (e.g., MAE)
-
-
-
-## Examples
-
-- [U-Net Paper](https://arxiv.org/abs/1505.04597)
-- [COD10K Dataset](https://sites.google.com/view/ltnghia/projects/camouflage)
 
