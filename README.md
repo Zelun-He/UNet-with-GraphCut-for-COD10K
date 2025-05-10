@@ -12,8 +12,6 @@ This model was built using a custom U-Net architecture with skip connections. It
 
 ---
 
-## Run i
-
 ## Optimizations
 
 - Used Dice loss for class imbalance in foreground/background.
